@@ -1,0 +1,1 @@
+../lib/scala-2.10.1/bin/scala

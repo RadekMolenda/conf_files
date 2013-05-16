@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -e
+
+
+main(){
+  branch_name_for_github
+}
+
+branch_name_for_github() {
+  git branch | 
+  grep "*" |
+  awk '{print $2}' |
+  tr '/' ';'
+}
+
+main
+

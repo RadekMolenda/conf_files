@@ -24,10 +24,14 @@ alias gl='pretty_git_log'
 alias glh='pretty_git_log -1'
 alias gla='pretty_git_log --all'
 alias gr='pretty_git_log -30'
-
-#otb aliases
-alias otb_app='switch app'
+alias update_master="git fa; git co master; git pull origin master; git co -"
 
 #rspec aliases
 alias spec_it='be rspec spec -rspec_helper'
+
+#ungrouped
 alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
+alias die="rm -f"
+alias chrome='google-chrome'
+alias e='vim'
+alias payments='cd ~/Code/Scratch/otb_payments_app'

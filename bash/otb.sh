@@ -11,7 +11,7 @@ VALID_APP_NAMES=( `find $OTB_CODE_DIR -maxdepth 1 -type d -exec basename {} \; |
                     sed -e 's/otb_//' -e 's/_app//'` )
 
 for appname in ${VALID_APP_NAMES[*]}; do
-  alias $appname="cd "$OTB_CODE_DIR"/otb_"$appname"_app/current && y_set_tab_title "$appname"_app"
+  alias $appname="cd "$OTB_CODE_DIR"/otb_"$appname"_app/current"
 done
 
 function set_sandbox {

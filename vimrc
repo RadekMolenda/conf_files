@@ -34,19 +34,18 @@ set spelllang=en
 set nospell
 set cc=80
 set hlsearch
+set cursorline
+set clipboard=unnamed
 filetype plugin on
 filetype indent on
 
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
 nmap <silent> <Leader>v :new ~/.vimrc<cr>
 nmap <Leader>sv :source ~/.vimrc<cr>
 nmap ~ ,
 
-nmap <Leader>t :map ,t :w\<bar>!bundle exec rspec --fail-fast <C-r>%<cr
+map ,,t :w<bar>execute("!bundle exec rspec ". expand("%") . " -l ". line("."))<cr>
+nmap <Leader>t :map ,t :w\<bar>!bundle exec rspec --fail-fast <C-r>% <cr
 nmap ,st :call OpenSpec()<cr>
 nmap ,ss :call OpenSource()<cr>
 imap <C-j> <Esc>ko
@@ -54,9 +53,17 @@ imap <C-j> <Esc>ko
 "cmap <C-l> <Down>
 "nnoremap <cr> :nohlsearch<cr>
 
-highlight ExtraWhitespace ctermbg=red guibg=red
+
 autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
+autocmd filetype lisp,scheme,art setlocal equalprg=scmindent.rkt
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
+highlight ExtraWhitespace ctermbg=red guibg=red
 
 function! OpenSpec()
   let filePath = expand('%')
@@ -72,7 +79,7 @@ function! StartsWith(expression, pattern)
 endfunction
 
 function! Ctags()
-  execute ':!ctags --exclude=public --exclude=_html --exclude=tmp --exclude=log --exclude=coverage --extra=+f -R *'
+  execute ':!ctags-exuberant --exclude=public --exclude=log --exclude=config --extra=+f -R * '
 endfunction
 
 function! OpenSource()
