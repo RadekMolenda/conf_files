@@ -1,6 +1,0 @@
-TAB_NAME=$1
-COMMAND=$2
-(if [ "`qdbus org.kde.yakuake /yakuake/MainWindow_1 org.freedesktop.DBus.Properties.Get com.trolltech.Qt.QWidget visible`" == "false" ]; then qdbus org.kde.yakuake /yakuake/window toggleWindowState; fi); 
-qdbus org.kde.yakuake /yakuake/sessions org.kde.yakuake.addSession;
-qdbus org.kde.yakuake /yakuake/tabs org.kde.yakuake.setTabTitle "`qdbus org.kde.yakuake /yakuake/sessions org.kde.yakuake.activeSessionId`" "$TAB_NAME";
-qdbus org.kde.yakuake /yakuake/sessions org.kde.yakuake.runCommand "$COMMAND";
