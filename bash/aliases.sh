@@ -35,3 +35,6 @@ alias die="rm -f"
 alias chrome='google-chrome'
 alias e='vim'
 alias payments='cd ~/Code/Scratch/otb_payments_app'
+alias spec-it='spec_it'
+alias scheme-test='for file in `find . -iname "*-test.scm"`; do echo $file; mzscheme $file; done'
+alias b='bundle'
