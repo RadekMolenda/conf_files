@@ -1,0 +1,11 @@
+URxvt.depth: 32
+URxvt.background: #000000
+URxvt.scrollBar: false
+URxvt.font: xft:Courier 10 Pitch:antialias=false:size=12
+urxvt*Boldfont: xft:Courier 10 Pitch:antialias=false:size=12
+urxvt*termName: xterm+256color
+URxvt.perl-ext-common: fullscreen
+URxvt.keysym.F11: perl:fullscreen:switch
+URxvt*tintColor: Black
+URxvt*shading: 40
+URxvt*foreground: White

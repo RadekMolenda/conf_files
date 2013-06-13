@@ -10,5 +10,5 @@ new_scm() {
 
 pipe() { while read data; do $1 $data; done }
 
-git_root_dir() { echo /home/radek/Code/247/otb_www_app/current; }
+git_root_dir() { echo $(git rev-parse --show-toplevel); }
 

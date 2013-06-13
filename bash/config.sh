@@ -19,7 +19,7 @@ export PERL_MB_OPT="--install_base /home/radek/perl5";
 export PERL_MM_OPT="INSTALL_BASE=/home/radek/perl5";
 export PERL5LIB="/home/radek/perl5/lib/perl5/x86_64-linux-gnu-thread-multi:/home/radek/perl5/lib/perl5";
 export PATH=/home/radek/lib/sbt/bin:/home/radek/perl5/bin:$PATH
-export TERM='xterm-256color'
+export TERM='xterm+256color'
 export OLD_RUBYGEMS='1.7.2'
 
 export EDITOR="vim"
